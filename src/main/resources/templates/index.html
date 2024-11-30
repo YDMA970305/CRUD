@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Lista de Usuarios</h1>
+        <hr>
+        <div th:if="${usuarios != null and !usuarios.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>PASSWORD</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>ROL</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONO</th>
+                    <th>ESTADO</th>
+                    <th>FECHA DE REGISTRO</th>
+                    <th>EDITAR</th>
+                    <th>ELIMINAR</th>
+                </tr>
+             
+                    <tr th:each="u : ${usuarios}">
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.password}"></td>
+                    <td th:text="${u.nombre}"></td>
+                    <td th:text="${u.apellidos}"></td>
+                    <td th:text="${u.rol}"></td>
+                    <td th:text="${u.email}"></td>
+                    <td th:text="${u.telefono}"></td>
+                    <td th:text="${u.estado}"></td>
+                    <td th:text="${u.fecha_registro}"></td>
+                    <td><a th:href="@{/editar/}+${u.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/eliminar/}+${u.id}" th:text="ELIMINAR"></a></td>
+            </tr>
+            </table>
+            <div th:if="${usuarios == null or usuarios.empty}">
+                La lista de usuarios esta vacia
+            </div>
+
+        </div>
+        <button onclick="window.location.href='/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Usuario</button>
+
+        <button onclick="window.location.href='/productos/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Reporte</button>
+        
+        <button onclick="window.location.href='/productos'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Lista de Reporte</button>   
+
+        <button onclick="window.location.href='/logout'" style="background-color: rgb(207, 200, 159); border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">LOGOUT</button>   
+     </body>
+</html>
