@@ -11,7 +11,7 @@
     <hr>
 
     <button onclick="window.location.href='/reportes/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Reporte</button>
-    <div th:if="${Reporte != null and !Reporte.empty}"> 
+    <div th:if="${reportes != null and !reportes.empty}"> 
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -23,11 +23,11 @@
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
             </tr>
-            <tr th:each="p : ${reportes}"> </tr>
+            <tr th:each="p : ${reportes}"> 
                 <td th:text="${p.id}"></td>
                 <td th:text="${p.titulo}"></td>
                 <td th:text="${p.paginas}"></td>
-                <td th:text="${p.costo}"></td> 1
+                <td th:text="${p.costo}"></td>
                 <td th:text="${p.fecha_reporte}"></td>
                 <td th:text="${p.user_id}"></td>
 
@@ -37,9 +37,9 @@
         </table>
         <button onclick="window.location.href='/' " style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;"> 
             Atrás
-          </button>
+         </button>
     </div>
-    <div th:if="${Reporte == null or Reporte.empty}"> 
+    <div th:if="${reportes == null or reportes.empty}"> 
         La lista de reportes está vacía
     </div>
 

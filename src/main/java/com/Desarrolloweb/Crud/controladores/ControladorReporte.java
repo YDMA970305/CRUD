@@ -24,7 +24,7 @@ public class ControladorReporte {
 
     @GetMapping("/reportes")
     public String inicio(Model modelo) {
-        List<Reporte> listaReportes = (List<Reporte>) reporteServicio.ListarReportes();        modelo.addAttribute("reporte", listaReportes);
+        List<Reporte> listaReportes = (List<Reporte>) reporteServicio.ListarReportes();        modelo.addAttribute("reportes", listaReportes);
         log.info("ejecutando el controlador de Reportes");
         return "reportes";
     }
