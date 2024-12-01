@@ -10,7 +10,7 @@
     <h1>Lista de Reportes</h1>
     <hr>
 
-    <button onclick="window.location.href='/reportes/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Producto</button>
+    <button onclick="window.location.href='/reportes/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Reporte</button>
     <div th:if="${Reporte != null and !Reporte.empty}"> 
         <table border="1">
             <tr>
@@ -29,7 +29,7 @@
                 <td th:text="${p.paginas}"></td>
                 <td th:text="${p.costo}"></td> 1
                 <td th:text="${p.fecha_reporte}"></td>
-                <td th:text="${p.usuario_id}"></td>
+                <td th:text="${p.user_id}"></td>
 
                 <td><a th:href="@{/reportes/editar/}+${p.id}" th:text="EDITAR"></a></td>
                 <td><a th:href="@{/reportes/eliminar/}+${p.id}" th:text="ELIMINAR"></a></td>
