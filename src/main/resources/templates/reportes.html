@@ -1,0 +1,48 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Lista de Reportes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Lista de Reportes</h1>
+    <hr>
+
+    <button onclick="window.location.href='/reportes/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Producto</button>
+    <div th:if="${Reporte != null and !Reporte.empty}"> 
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>PAGINAS</th>
+                <th>COSTO</th>
+                <th>FECHA DE REPORTE</th>
+                <th>USUARIO ID</th>
+                <th>EDITAR</th>
+                <th>ELIMINAR</th>
+            </tr>
+            <tr th:each="p : ${reportes}"> </tr>
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.titulo}"></td>
+                <td th:text="${p.paginas}"></td>
+                <td th:text="${p.costo}"></td> 1
+                <td th:text="${p.fecha_reporte}"></td>
+                <td th:text="${p.usuario_id}"></td>
+
+                <td><a th:href="@{/reportes/editar/}+${p.id}" th:text="EDITAR"></a></td>
+                <td><a th:href="@{/reportes/eliminar/}+${p.id}" th:text="ELIMINAR"></a></td>
+            </tr>
+        </table>
+        <button onclick="window.location.href='/' " style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;"> 
+            Atrás
+          </button>
+    </div>
+    <div th:if="${Reporte == null or Reporte.empty}"> 
+        La lista de reportes está vacía
+    </div>
+
+</body>
+
+</html>
